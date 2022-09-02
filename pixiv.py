@@ -33,12 +33,7 @@ class Telegram(TelegramAccount):
         return cls._instance
 
     def __init__(self):
-        # self.api_id = TelegramAccount.api_id
-        # self.api_hash = TelegramAccount.api_hash
-        # self.proxy = TelegramAccount.proxy
-
         self.app = Client("TG", api_id=self.api_id, api_hash=self.api_hash, proxy=self.proxy)
-
         self.logger = Logger(file_name="telegram", mode="file")
 
     async def send_one_picture(self, url, id_=None):
@@ -62,11 +57,6 @@ class Telegram(TelegramAccount):
 
 class PixivFavorite(PixivAccount):
     def __init__(self):
-        # self.token = PixivAccount.token
-        # self.proxy = PixivAccount.proxy
-        # self.userid = PixivAccount.userid
-        # self.json_name = PixivAccount.json_name
-
         self.api = AppPixivAPI(proxies=self.proxy)
         self.logger = Logger(file_name="pixiv", mode="file")
 
