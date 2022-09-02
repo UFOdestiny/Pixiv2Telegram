@@ -6,53 +6,19 @@
 # @Desc     : get pixiv favorite images (latest 90) and send them to telegram favorite.
 
 import json
-
 import time
 
 from pixivpy3 import AppPixivAPI
 from pixivpy3.utils import PixivError
-from pyrogram import Client
-from pyrogram.errors.exceptions.bad_request_400 import WebpageCurlFailed, ExternalUrlInvalid, MediaEmpty
 
+from Telegram import Telegram
+from config import PixivAccount
 from logger import Logger
-
-from config import TelegramAccount, PixivAccount
 
 
 class AuthError(Exception):
     def __str__(self):
         return "连接失败"
-
-
-class Telegram(TelegramAccount):
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super().__new__(cls)
-        return cls._instance
-
-    def __init__(self):
-        self.app = Client("TG", api_id=self.api_id, api_hash=self.api_hash, proxy=self.proxy)
-        self.logger = Logger(file_name="telegram", mode="file")
-
-    async def send_one_picture(self, url, id_=None):
-        try:
-            await self.app.send_photo("me", url, caption=id_)
-        except WebpageCurlFailed:
-            self.logger.error(f"{id_} : {url}")
-        except ExternalUrlInvalid:
-            self.logger.error(f"{id_} : {url}")
-
-    async def pic_pixiv(self, dic):
-        async with self.app:
-            for t in list(dic.items()):
-                id_, urls = t[0], t[1]
-                for url in urls:
-                    await self.send_one_picture(url, id_)
-
-    def send_pixiv(self, d):
-        self.app.run(self.pic_pixiv(d))
 
 
 class PixivFavorite(PixivAccount):
