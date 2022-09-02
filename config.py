@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @Name     : pixiv.py
+# @Name     : Pixiv.py
 # @Date     : 2022/9/2 13:26
 # @Auth     : UFOdestiny
 # @Desc     : config

@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @Name     : logger.py
+# @Name     : Logger.py
 # @Date     : 2022/9/2 10:45
 # @Auth     : UFOdestiny
 # @Desc     : logger

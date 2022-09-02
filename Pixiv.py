@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @Name     : pixiv.py
+# @Name     : Pixiv.py
 # @Date     : 2022/9/2 10:19
 # @Auth     : UFOdestiny
 # @Desc     : get pixiv favorite images (latest 90) and send them to telegram favorite.
@@ -13,7 +13,7 @@ from pixivpy3.utils import PixivError
 
 from Telegram import Telegram
 from config import PixivAccount
-from logger import Logger
+from Logger import Logger
 
 
 class AuthError(Exception):

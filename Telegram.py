@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-# @Name     : pixiv.py
+# @Name     : Pixiv.py
 # @Date     : 2022/9/2 10:19
 # @Auth     : UFOdestiny
 # @Desc     : Telegram
@@ -9,7 +9,7 @@ from pyrogram import Client
 from pyrogram.errors.exceptions.bad_request_400 import WebpageCurlFailed, ExternalUrlInvalid, MediaEmpty
 
 from config import TelegramAccount
-from logger import Logger
+from Logger import Logger
 
 
 class Telegram(TelegramAccount):
